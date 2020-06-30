@@ -15,7 +15,10 @@ class EvaluatorTest < Minitest::Test
     end
 
     def test_parse_input_with_brackets 
-        
+        # when 
+        result = parse_input!('2*(1+(2+3)+4)')        
+        # then
+        assert_equal ["2", "*", "(", "1", "+", "(", "2", "+","3", ")", "+", "4", ")"], result
     end
 
     def test_parse_input_with_whitespaces
@@ -57,7 +60,8 @@ class EvaluatorTest < Minitest::Test
                                 ['2 / 2 + 3 * 4.75- - 6', 21.25],
                                 ['2 / (2 + 3) * 4.33 - -6', 7.732],
                                 ['12*-1', -12],
-                                # ['12* 123/-(-5 + 2)', 492]
+                                ['12* 123/-(-5 + 2)', 492]
+                                ['1 - -(-(-(-4)))', -3]
                             ]
     
     challenge_test_suite.each do |pair|
