@@ -33,7 +33,13 @@ end
   
   def evaluate_stack_till_right_bracket(operator_stack, value_stack)
     op = operator_stack.pop()
+    p 'evaluate_stack_till_right_bracket'
+    p operator_stack
+    p op
+    p value_stack
+    p 'evaluate_stack_till_right_bracket'
     while op != '('
+      p 'while'
       evaluate_stack(operator_stack, value_stack, op: op)
       op = operator_stack.pop()
     end
